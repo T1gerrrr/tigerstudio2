@@ -1,0 +1,585 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #000000, #360f0f, #000000); 
+    color: #623030;
+    min-height: 100vh;
+    animation: fadeIn 1s forwards;
+    opacity: 0;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  header, .page, .card-container {
+    opacity: 0;
+    transform: translateY(20px); /* Di chuyển nhẹ từ dưới lên */
+    animation: fadeUp 1s ease-out forwards;
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  header {
+    background-color: #111111;
+    /* border-bottom :0.2px solid #ffffff ; */
+    color: white;
+    padding: 20px 0;
+   
+  }
+  
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li button {
+    background-color: #131313;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  
+  nav ul li button:hover {
+    background-color: #6c1515;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  .subtitle {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+  
+
+  .game-header-img {
+    width: 20%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: -600px;
+    filter: brightness(0.5); /* Làm tối ảnh header */
+  }
+  
+  .intro {
+    background-color: #111111;
+    position: relative;
+  }
+  
+  .intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/img/'); /* Thêm đường dẫn hình ảnh nền */
+    background-size: cover;
+    filter: blur(8px);
+    z-index: -1;
+  }
+  .brand-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+  }
+  .page {
+    display: none;
+    padding: 40px 0;
+    flex-grow: 1;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  /* CHỮ TIÊU ĐỀ  */
+  h2 {
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    margin-bottom: -10px;
+    font-size: 28px;
+    color: #ffffff;
+  }
+  h2:first-of-type {
+    font-size: 4em; /* FIVEM SERVICE sẽ lớn hơn */
+    font-weight: bold;
+    background: linear-gradient(90deg, #2e0f0f, #ffffff); 
+    -webkit-background-clip: text; /* Áp dụng gradient cho chữ */
+    color: transparent; /* Làm cho chữ trở nên trong suốt */
+  }
+  
+  h2:last-of-type {
+    font-size: 4em; /* FIVEM SERVICE sẽ lớn hơn */
+    font-weight: bold;
+    background: linear-gradient(0deg, #5e1407, #ff9c9c); 
+    -webkit-background-clip: text; /* Áp dụng gradient cho chữ */
+    color: transparent; /* Làm cho chữ trở nên trong suốt */
+  }
+
+  .intro-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .developer-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  .text {
+    max-width: 600px;
+  }
+  
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .service-item {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+   
+  }
+  
+  footer {
+    background-color: #111111;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    width: 100%;
+    margin-top: auto; /* Đẩy footer xuống cuối trang */
+  }
+
+  .image-container {
+    margin-left: auto; /* Căn trái và phải tự động */
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* Đặt chiều cao theo phần trăm của chiều cao màn hình */
+    width: 70%; /* Đảm bảo chiếm toàn bộ chiều rộng màn hình */
+    background-color: #24242400;
+    position: relative; /* Đảm bảo ảnh con không bị lệch */
+  }
+  
+  .image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Giữ tỷ lệ ảnh và không làm ảnh bị vỡ */
+    border-radius: 10px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+  
+
+  
+  .intro-image {
+    width: 200%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    margin-left: 1%;
+    transition: all 0.5s ease;
+    border-radius: 20px;
+    opacity: 1;
+  }
+
+  .intro-images:hover .intro-image {
+    transform: scale(1.1); /* Phóng to ảnh khi hover */
+    opacity: 1; /* Làm ảnh rõ hơn */
+  }
+  .image-1 {
+
+    z-index: 3; /* Tấm ảnh đầu tiên ở trên cùng */
+  }
+  
+  .image-2 {
+    z-index: 2;
+    left: 20px; /* Dịch chuyển tấm ảnh thứ 2 sang trái một chút */
+  }
+  
+  .image-3 {
+    z-index: 1;
+    left: 40px; /* Dịch chuyển tấm ảnh thứ 3 sang trái một chút */
+  }
+  
+  /* Khi hover vào ảnh, chúng sẽ tỏa ra */
+  .intro-images:hover .intro-image {
+    transform: scale(1.1); /* Phóng to ảnh khi hover */
+    opacity: 1; /* Làm ảnh rõ hơn */
+  }
+  
+  /* Đảm bảo ảnh không bị tràn khi chưa hover */
+  .intro-images:hover .image-1 {
+    left: -20px; /* Dịch chuyển ảnh thứ nhất sang trái */
+  }
+  
+  .intro-images:hover .image-2 {
+    left: 20px; /* Dịch chuyển ảnh thứ hai sang phải */
+  }
+  
+  .intro-images:hover .image-3 {
+    left: 40px; /* Dịch chuyển ảnh thứ ba sang phải */
+  }
+  .btn-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --c: #ffffff;
+    /* text color */
+    background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p, 100%) / 300% no-repeat,
+      #5b1515;
+    /* background color */
+    color: #0000;
+    /* border: 4px solid #ffffff; */
+    border: none;
+    transform: perspective(500px) rotateY(calc(20deg * var(--_i, -1)));
+    text-shadow: calc(var(--_i, -1) * 0.08em) -.01em 0 var(--c),
+      calc(var(--_i, -1) * -0.08em) .01em 2px #0004;
+    outline-offset: .1em;
+    transition: 0.3s;
+    border-radius: 10px;
+    text-decoration: none; /* Xóa dấu gạch dưới */
+  }
+  
+  .btn-contact:hover,
+  .btn-contact:focus-visible {
+    --_p: 0%;
+    --_i: 1;
+  }
+  
+  .btn-contact:active {
+    text-shadow: none;
+    color: var(--c);
+    box-shadow: inset 0 0 9e9q #0005;
+    transition: 0s;
+  }
+  
+  .btn-contact {
+   
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0;
+    cursor: pointer;
+    padding: .9em .9em;
+    position: absolute; /* Hoặc fixed nếu bạn muốn cố định */
+    top: 10%;
+    left: 10%;
+  transform: translate(-50%, -50%); /* Điều chỉnh để căn chính xác vào giữa */
+  }
+  
+  .statistics {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%); /* Căn giữa hoàn toàn */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 0; /* Đảm bảo không có margin-top gây lệch */
+    width: 100%; /* Đảm bảo độ rộng của phần tử */
+    z-index: 2; /* Đảm bảo các phần tử không bị chồng lên */
+  }
+  
+  .stat-item {
+    text-align: center;
+    color: #fff;
+  }
+  
+  .stat-number {
+    font-size: 3em;
+    font-weight: bold;
+    color: #d3d3d3;
+  }
+  
+  .stat-label {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #b60000;
+  }
+  
+  .card-container {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    flex-wrap: wrap; /* Đảm bảo các thẻ sẽ chuyển sang dòng mới khi không đủ chỗ */
+    gap: 30px; /* Khoảng cách giữa các thẻ */
+    margin-top: 50px;
+    padding: 0 20px; /* Thêm khoảng cách từ 2 bên để tránh thẻ bị sát vào mép */
+  }
+  
+  .card {
+    background: linear-gradient(135deg, #000000, #313131, #200b0b);
+    border-radius: 10px;
+    width: 350px;
+    height: 500px;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    margin-bottom: 30px; /* Thêm khoảng cách dưới mỗi thẻ */
+  }
+  
+  .card:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+    transform: translateY(-10px);
+  }
+  
+  .card:hover,
+  .card:focus-visible {
+    --_p: 0%;
+    --_i: 1;
+  }
+  .card-header {
+ 
+    top: 10px;
+    left: 10px;
+    background: linear-gradient(90deg, #3a2222, #3d3d3d); 
+    /* border: 4px solid #666666; */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 0px 0px 10px 10px;
+  }
+  
+  .limited-edition {
+    font-weight: bold;
+    font-size: 1em;
+  }
+  
+  .card-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+  }
+  
+  .eth-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffeb3b; /* Màu vàng cho Ethereum */
+    margin-top: 10px;
+  }
+  
+  .timer {
+    color: #aaa;
+    margin-top: 10px;
+  }
+  
+  .bid-now {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    margin-top: 15px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .bid-now:hover {
+    background-color: #ff6347;
+  }
+  .info-box {
+    display: none; /* Mặc định ẩn bảng thông tin */
+    position: absolute;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(0, 0, 0);
+    color: #ffffffbd;
+    padding: 15px;
+    border-radius: 5px;
+    width: 80%;
+    box-sizing: border-box;
+  }
+  
+  .card:hover .info-box {
+    display: block; /* Hiển thị bảng khi hover vào thẻ */
+  }
+  .owner-text {
+    color: #ff6347; /* Màu đỏ cho chữ "Owner" */
+    font-weight: bold; /* Làm chữ "Owner" đậm */
+  }
+.Description-text {
+  color: #b8ff47; /* Màu đỏ cho chữ "Owner" */
+  font-weight: bold; /* Làm chữ "Owner" đậm */
+}
+.Discord-text {
+  color: #47daff; /* Màu đỏ cho chữ "Owner" */
+  font-weight: bold; /* Làm chữ "Owner" đậm */
+}
+
+.card2-container {
+  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  /* justify-content: center; */
+  gap: 30px;
+  margin-top: 50px;
+}
+.card2 {
+  transform: perspective(500px) rotateY(calc(5deg * var(--_i, -1)));
+  text-shadow: calc(var(--_i, -1) * 0.08em) -.01em 0 var(--c),
+    calc(var(--_i, -1) * -0.08em) .01em 2px #0004;
+  outline-offset: .1em;
+  transition: 0.3s;
+  background: linear-gradient(135deg, #1a1a1a, #000000, #353535); 
+  border-radius: 10px;
+  width: 350px;
+  height:400px;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  margin-bottom: 30px; /* Thêm khoảng cách dưới mỗi thẻ */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card2-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+.card2:hover {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6); /* Tăng độ bóng và thay đổi màu sắc */
+  transform: translateY(-10px); /* Di chuyển thẻ lên một chút khi hover */
+}
+.card2:hover,
+.card2:focus-visible {
+  --_p: 0%;
+  --_i: 1;
+}
+
+
+
+#thong-tin-sp {
+  padding: 90px 0;
+}
+
+.contact-section {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* 2 cột trên mỗi hàng */
+  gap: 10px;
+}
+
+.contact-item {
+
+  background-color: #000000;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item h3, .contact-item h4 {
+  color: #ffffff;
+}
+
+.contact-item p {
+  color: #666;
+}
+
+footer {
+  text-align: center;
+  background-color: #111;
+  color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+#ui-shop {
+  padding: 40px 0;
+}
+
+.product-detail {
+  text-align: center;
+  background-color: #f4f4f4;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+.product-description {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.product-info {
+  margin-top: 20px;
+}
+
+.product-info p {
+  font-size: 1.1em;
+  color: #666;
+}
+
+.back-button {
+  background-color: #6c1515;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #8a2a2a;
+}
+
